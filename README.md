@@ -65,12 +65,13 @@ MindSpore Elec求解该问题的具体流程如下：
 
 AI求解点源麦克斯韦方程组的整体网络架构如下：
 
-![]()
+![](https://github.com/ouyangzehong/time_domain_maxwell/blob/main/images/image4.png)
 
 以二维点源麦克斯韦方程组为例，网络输入为 `Ω = (x, y, t) ∈ [0,1]^3`，输出为方程的解 `u = (E_x, E_y, H_z)`。基于网络的输出和MindSpore框架的自动微分功能，训练损失函数来自于控制方程（PDE loss）、初始条件（IC loss）和边界条件（BC loss）三部分。这里我们采用电磁场为0的初始值，边界采用二阶Mur吸收边界条件。由于激励源的存在，我们将PDE loss的计算分为两部分：激励源附近区域 `Ω0` 与非激励源区域 `Ω1`。最终整体的损失函数可以表示为：
 
 Ltotal=λsrcLsrc+λsrcicLsrcic+λnosrcLnosrc+λnosrcicLnosrcic+λbcLbc
 
+其中λs表示各项损失函数的权重。为了降低权重选择的难度，采用了自适应加权的算法，具体参见论文。
 
 
 
