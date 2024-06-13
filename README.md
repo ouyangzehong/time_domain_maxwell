@@ -314,11 +314,17 @@ l2_error, Ex:  0.03556711707787814 , Ey:  0.03434167989333677 , Hz:  0.022974221
 
 在网页打开收集的summary文件，随着训练的进行，Ex/Ey/Hz的误差曲线如下图所示：
 
+![](https://github.com/ouyangzehong/time_domain_maxwell/blob/main/images/image5.png)
+
+还可以通过eval.py脚本加载测试数据集进行推理，并获取推理精度：
+
 ```bash
+predict total time: 40.59165406227112 s
+l2_error, Ex:  0.03556711707787814 , Ey:  0.03434167989333677 , Hz:  0.022974221345851673
 ```
+瞬时电磁场的分布与FDTD标签数据的对比云图如下所示：
 
-
-
+![](https://github.com/ouyangzehong/time_domain_maxwell/blob/main/images/image6.png)
 
 
 
